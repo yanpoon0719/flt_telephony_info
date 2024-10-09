@@ -32,15 +32,6 @@ class FltTelephonyInfoPlugin : FlutterPlugin, MethodCallHandler {
             val resultMap = HashMap<String, Any?>()
 
             /**
-             * 当前电话状态
-             *
-             * {@link TelephonyManager#CALL_STATE_RINGING}
-             * {@link TelephonyManager#CALL_STATE_OFFHOOK}
-             * {@link TelephonyManager#CALL_STATE_IDLE}
-             */
-            resultMap["callState"] = telephonyManager.callState
-
-            /**
              * Returns a constant indicating the radio technology (network type)
              * currently in use on the device for data transmission.
              *
@@ -84,8 +75,19 @@ class FltTelephonyInfoPlugin : FlutterPlugin, MethodCallHandler {
                     context!!,
                     android.Manifest.permission.READ_PHONE_STATE
                 ) == PERMISSION_GRANTED
-            )
+            ) {
                 resultMap["deviceSoftwareVersion"] = telephonyManager.deviceSoftwareVersion
+                /**
+                 * 当前电话状态
+                 *
+                 * {@link TelephonyManager#CALL_STATE_RINGING}
+                 * {@link TelephonyManager#CALL_STATE_OFFHOOK}
+                 * {@link TelephonyManager#CALL_STATE_IDLE}
+                 */
+                resultMap["callState"] = telephonyManager.callState
+                //网络类型
+                resultMap["networkType"] = telephonyManager.networkType
+            }
 
             //IMEI
             if (ContextCompat.checkSelfPermission(
@@ -217,9 +219,6 @@ class FltTelephonyInfoPlugin : FlutterPlugin, MethodCallHandler {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 resultMap["networkSpecifier"] = telephonyManager.networkSpecifier
             }
-
-            //网络类型
-            resultMap["networkType"] = telephonyManager.networkType
 
             /**
              * Returns the alphabetic name of current registered operator.

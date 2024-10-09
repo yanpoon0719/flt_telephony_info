@@ -109,106 +109,106 @@ class PhoneType {
 
 class TelephonyInfo {
   TelephonyInfo._({
-    required this.callState,
-    required this.dataNetworkType,
-    required this.deviceSoftwareVersion,
-    required this.imei,
-    required this.isDataEnabled,
-    required this.isNetworkRoaming,
-    required this.isSmsCapable,
-    required this.isVoiceCapable,
-    required this.line1Number,
-    required this.meid,
-    required this.nai,
-    required this.networkCountryIso,
-    required this.networkOperator,
-    required this.networkSpecifier,
-    required this.networkType,
-    required this.networkOperatorName,
-    required this.phoneCount,
-    required this.phoneType,
-    required this.serviceState,
-    required this.simCarrierId,
-    required this.simCarrierIdName,
-    required this.simCountryIso,
-    required this.simOperator,
-    required this.simOperatorName,
-    required this.simSerialNumber,
+    this.callState,
+    this.dataNetworkType,
+    this.deviceSoftwareVersion,
+    this.imei,
+    this.isDataEnabled,
+    this.isNetworkRoaming,
+    this.isSmsCapable,
+    this.isVoiceCapable,
+    this.line1Number,
+    this.meid,
+    this.nai,
+    this.networkCountryIso,
+    this.networkOperator,
+    this.networkSpecifier,
+    this.networkType,
+    this.networkOperatorName,
+    this.phoneCount,
+    this.phoneType,
+    this.serviceState,
+    this.simCarrierId,
+    this.simCarrierIdName,
+    this.simCountryIso,
+    this.simOperator,
+    this.simOperatorName,
+    this.simSerialNumber,
   });
 
   ///当前电话状态
   ///返回值参考：[CallState]
-  final int? callState;
+  final int callState;
 
   ///当前使用中的网络数据类型
   ///安卓需要权限：android.permission.READ_PHONE_STATE
   ///[NetworkType]
-  final int? dataNetworkType;
+  final int dataNetworkType;
 
   ///设备的软件版本号
   ///安卓需要权限：android.permission.READ_PHONE_STATE
-  final String? deviceSoftwareVersion;
+  final String deviceSoftwareVersion;
 
   ///IMEI(International Mobile Equipment Identity)
   ///安卓需要权限：android.permission.READ_PHONE_STATE
-  final String? imei;
+  final String imei;
 
   ///是否打开网络数据
   ///安卓以下权限之一：
   ///android.permission.ACCESS_NETWORK_STATE
   ///android.permission.MODIFY_PHONE_STATE
-  final bool? isDataEnabled;
+  final bool isDataEnabled;
 
   ///是否漫游
-  final bool? isNetworkRoaming;
+  final bool isNetworkRoaming;
 
   ///是否支持短信
-  final bool? isSmsCapable;
+  final bool isSmsCapable;
 
   ///是否支持语音通信
-  final bool? isVoiceCapable;
+  final bool isVoiceCapable;
 
   ///手机号码，获取不到将返回null
   ///安卓需要以下权限之一：
   ///android.permission.READ_PHONE_STATE
   ///android.permission.READ_SMS
   ///android.permission.READ_PHONE_NUMBERS
-  final String? line1Number;
+  final String line1Number;
 
   ///MEID (Mobile Equipment Identifier)
   ///安卓需要权限：android.permission.READ_PHONE_STATE
-  final String? meid;
+  final String meid;
 
   ///Network Access Identifier (NAI)
   ///安卓需要权限：android.permission.READ_PHONE_STATE
-  final String? nai;
+  final String nai;
 
   ///当前网络所在国家代码
-  final String? networkCountryIso;
-  final String? networkOperator;
-  final String? networkSpecifier;
+  final String networkCountryIso;
+  final String networkOperator;
+  final String networkSpecifier;
 
   ///网络类型
   ///[NetworkType]
-  final int? networkType;
-  final String? networkOperatorName;
+  final int networkType;
+  final String networkOperatorName;
 
   ///可用的SIM卡数量
-  final int? phoneCount;
+  final int phoneCount;
 
   ///[PhoneType]
-  final int? phoneType;
+  final int phoneType;
   final dynamic serviceState;
-  final int? simCarrierId;
+  final int simCarrierId;
 
   ///运营商名称
-  final String? simCarrierIdName;
-  final String? simCountryIso;
-  final String? simOperator;
+  final String simCarrierIdName;
+  final String simCountryIso;
+  final String simOperator;
 
   ///运营商名称
-  final String? simOperatorName;
-  final String? simSerialNumber;
+  final String simOperatorName;
+  final String simSerialNumber;
 
   static TelephonyInfo fromMap(Map<String, dynamic> map) {
     return TelephonyInfo._(
